@@ -14,15 +14,31 @@ const openedValue = ref(['a'])
   //   openedValue.value = ['a', 'b']
   // }, 2000)
 })
+const testClick=()=>{
+  alert(123)
+}
 </script>
  
 <template>
-  <Button type="primary" plain disabled ref="buttonRef">Test Button</Button>
-  <a href="#">hello</a>
+  <Button type="primary" plain ref="buttonRef" disabled>Test Button</Button><br/>
+  <a href="#">hello</a><br/>
+  
+  <Button type="primary" @click="testClick">Primary</Button>
+  <Button type="success">Success</Button>
+  <Button type="info">Info</Button>
+  <Button type="warning">Warning</Button>
+  <Button type="danger">Danger</Button><br/><br/>
+  <Button type="primary" plain>Primary</Button>
+  <Button type="success" plain>Success</Button>
+  <Button type="info" plain>Info</Button>
+  <Button type="warning" plain>Warning</Button>
+  <Button type="danger" plain>Danger</Button><br/><br/>
+  <Button size="large">Large</Button>
+  <Button size="small">Small</Button><br/>
 
   <Collapse v-model="openedValue">
       <Item name="a" title="Title A">
-        <h>headline title</h>
+        <h1>headline title</h1>
         <div> this is content a aaa </div>
       </Item>
       <Item name="b" title="Title B">
