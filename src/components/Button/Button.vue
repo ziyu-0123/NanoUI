@@ -40,3 +40,9 @@ defineExpose({
   ref: _ref
 })
 </script>
+
+<style>
+.nano-button {
+  background-color: var(--main-bg-color);
+}
+</style>

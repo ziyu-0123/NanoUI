@@ -24,7 +24,7 @@ export default defineConfigWithVueTs(
     name: 'custom-rules',
     rules: {
       'vue/multi-word-component-names': ['error', {
-        ignores: ['Button', 'Input', 'Dialog', 'Card', 'Icon']
+        ignores: ['Button', 'Collapse', 'CollapseItem', 'Card', 'Icon']
       }]
     }
   },
