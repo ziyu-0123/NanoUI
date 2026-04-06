@@ -15,8 +15,8 @@
       <slot name="title">{{title}}</slot>
     </div>
     <Transition name="slide" v-on="transitionEvents">
-      <div class="vk-collapse-item__wrapper" v-show="isActive">
-        <div class="nano-collapse-item__content" :id="`item-content-${name}`" v-show="isActive">
+      <div class="nano-collapse-item__wrapper" v-show="isActive">
+        <div class="nano-collapse-item__content" :id="`item-content-${name}`">
           <slot></slot>
         </div>
       </div>

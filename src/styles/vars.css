@@ -70,7 +70,7 @@
   --nano-border-width: 1px;
   --nano-border-style: solid;
   --nano-border-color-hover: var(--nano-text-color-disabled);
-  --nano-border: var(--nano-border-width) var(--nano-border-style) var(--vk-border-color);
+  --nano-border: var(--nano-border-width) var(--nano-border-style) var(--nano-border-color);
   --nano-border-radius-base: 4px;
   --nano-border-radius-small: 4px;
   --nano-border-radius-round: 20px;
@@ -85,7 +85,9 @@
   --nano-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
   --nano-font-weight-primary: 500;
 
-  --nano-disabled-bg-color: var(--vk-fill-color-light);
-  --nano-disabled-text-color: var(--vk-text-color-placeholder);
-  --nano-disabled-border-color: var(--vk-border-color-light);
+  --nano-disabled-bg-color: var(--nano-fill-color-light);
+  --nano-disabled-text-color: var(--nano-text-color-placeholder);
+  --nano-disabled-border-color: var(--nano-border-color-light);
+
+  --nano-transition-duration: .3s;
 }
