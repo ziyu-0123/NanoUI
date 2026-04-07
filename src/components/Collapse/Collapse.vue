@@ -6,12 +6,6 @@
   </div>
 </template>
 
-<script lang="ts">
-export default{
-  name: 'NanoCollapse'
-}
-</script>
-
 <script setup lang="ts">
 import { ref, provide, watch } from 'vue'
 import type { NameType, CollapseProps, CollapseEmits } from './types'
@@ -20,6 +14,11 @@ import { collapseContextKey } from './types'
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<NameType[]>(props.modelValue)
+
+defineOptions({
+  name: 'NanoCollapse'
+})
+
 watch(() => props.modelValue, () => {
   activeNames.value = props.modelValue
 })

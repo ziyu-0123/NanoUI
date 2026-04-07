@@ -67,4 +67,5 @@
   --nano-disabled-border-color: var(--nano-border-color-light);
 
   --nano-transition-duration: .3s;
+  --nano-transition-duration-fast: .2s;
 }
