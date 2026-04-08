@@ -1,24 +1,32 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import type { ButtonInstance } from './components/Button/types'
+import type { TooltipInstance } from './components/Tooltip/types'
 import Tooltip from './components/Tooltip/Tooltip.vue'
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
-const buttonRef = ref<ButtonInstance | null>()
+const buttonRef = ref<ButtonInstance | null>(null)
+const tooltipRef = ref<TooltipInstance | null>(null)
 const size = ref<any>('3x')
-const trigger = ref<any>('click')
+const trigger = ref<any>('hover')
 const openedValue = ref(['a'])
-  onMounted(()=>{
-  if(buttonRef.value){
-    console.log('buttonRef', buttonRef.value.ref)
-  }
-  setTimeout(() => {
-    openedValue.value = ['a', 'b']
-    size.value = '2xl'
-    trigger.value = 'hover'
-  }, 2000)
+const open = () => {
+  tooltipRef.value?.show()
+}
+const close = () => {
+  tooltipRef.value?.hide()
+}
+onMounted(()=>{
+if(buttonRef.value){
+  console.log('buttonRef', buttonRef.value.ref)
+}
+setTimeout(() => {
+  openedValue.value = ['a', 'b']
+  size.value = '2xl'
+  // trigger.value = 'hover'
+}, 2000)
 })
 const testClick=()=>{
   alert(123)
@@ -29,13 +37,16 @@ const testClick=()=>{
   <header>
     <Tooltip placement="right"
       :trigger="trigger"
+      ref="tooltipRef"
+      :open-delay="1000"
+      :close-delay="1000"
       >
       <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
       <template #content>
-        <h1>hello tooltip</h1>
+        <div>hello tooltip</div>
       </template>
     </Tooltip>
-  </header>
+  </header><br/>
 
   <Button type="primary" plain ref="buttonRef" disabled>Test Button</Button><br/>
 
@@ -44,8 +55,8 @@ const testClick=()=>{
   <Icon icon="arrow-up" :size="size" type="danger" color="#0e7a0d"></Icon><br/>
 
   <Button type="primary" @click="testClick">Primary</Button>
-  <Button type="success">Success</Button>
-  <Button type="info">Info</Button>
+  <Button type="success" @click="open">Success</Button>
+  <Button type="info" @click="close">Info</Button>
   <Button type="warning">Warning</Button>
   <Button type="danger">Danger</Button><br/><br/>
 

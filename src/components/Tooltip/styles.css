@@ -1,0 +1,85 @@
+.nano-tooltip {
+  --nano-popover-bg-color: var(--nano-bg-color-overlay);
+  --nano-popover-font-size: var(--nano-font-size-base);
+  --nano-popover-border-color: var(--nano-border-color);
+  --nano-popover-padding: 12px;
+  --nano-popover-border-radius: 4px;
+  display: inline-block; /* 容器行内块，适配触发元素尺寸 */
+}
+
+.nano-tooltip {
+  .nano-tooltip__popper {
+    background: var(--nano-popover-bg-color);
+    border-radius: var(--nano-popover-border-radius);
+    border: 1px solid var(--nano-popover-border-color);
+    padding: var(--nano-popover-padding);
+    color: var(--nano-text-color-regular);
+    line-height: 1.4;
+    text-align: justify;
+    font-size: var(--nano-popover-font-size);
+    box-shadow: var(--nano-box-shadow-light);
+    word-break: break-all; /* 兼容长文本换行 */
+    box-sizing: border-box; /* 保证内边距不影响宽高 */
+    z-index: 1000; /* 提高层级，避免被遮挡 */
+    /* 箭头样式 */
+    #arrow,
+    #arrow::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      box-sizing: border-box;
+      background: var(--nano-popover-bg-color);
+    }
+    #arrow {
+      visibility: hidden; /* 隐藏原元素，仅用伪元素显示 */
+    }
+    #arrow::before {
+      visibility: visible;
+      content: "";
+      transform: rotate(45deg); /* 旋转45°形成菱形箭头 */
+    }
+    /* 按位置调整箭头位置 */
+    &[data-popper-placement^='top'] > #arrow {
+      bottom: -5px;
+    }
+    
+    &[data-popper-placement^='bottom'] > #arrow {
+      top: -5px;
+    }
+    
+    &[data-popper-placement^='left'] > #arrow {
+      right: -5px;
+    }
+    
+    &[data-popper-placement^='right'] > #arrow {
+      left: -5px;
+    }
+    /* 按位置调整箭头边框（模拟三角箭头） */
+    &[data-popper-placement^="top"] > #arrow::before {
+      border-right: 1px solid var(--nano-popover-border-color);
+      border-bottom: 1px solid var(--nano-popover-border-color);
+    }
+    &[data-popper-placement^="bottom"] > #arrow::before {
+      border-left: 1px solid var(--nano-popover-border-color);
+      border-top: 1px solid var(--nano-popover-border-color);
+    }
+    &[data-popper-placement^="left"] > #arrow::before {
+      border-right: 1px solid var(--nano-popover-border-color);
+      border-top: 1px solid var(--nano-popover-border-color);
+    }
+    &[data-popper-placement^="right"] > #arrow::before {
+      border-left: 1px solid var(--nano-popover-border-color);
+      border-bottom: 1px solid var(--nano-popover-border-color);
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity var(--nano-transition-duration);
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}
