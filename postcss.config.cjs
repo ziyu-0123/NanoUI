@@ -9,6 +9,7 @@ module.exports = {
           require('postcss-color-mix')
         ]
       }
-    })
+    }),
+    require('autoprefixer'),
   ]
 }

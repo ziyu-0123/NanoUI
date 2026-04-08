@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import type { ButtonInstance } from './components/Button/types'
+import Tooltip from './components/Tooltip/Tooltip.vue'
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
 const buttonRef = ref<ButtonInstance | null>()
 const size = ref<any>('3x')
+const trigger = ref<any>('click')
 const openedValue = ref(['a'])
   onMounted(()=>{
   if(buttonRef.value){
@@ -15,6 +17,7 @@ const openedValue = ref(['a'])
   setTimeout(() => {
     openedValue.value = ['a', 'b']
     size.value = '2xl'
+    trigger.value = 'hover'
   }, 2000)
 })
 const testClick=()=>{
@@ -23,6 +26,17 @@ const testClick=()=>{
 </script>
  
 <template>
+  <header>
+    <Tooltip placement="right"
+      :trigger="trigger"
+      >
+      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
+      <template #content>
+        <h1>hello tooltip</h1>
+      </template>
+    </Tooltip>
+  </header>
+
   <Button type="primary" plain ref="buttonRef" disabled>Test Button</Button><br/>
 
   <a href="#">hello</a><br/>
