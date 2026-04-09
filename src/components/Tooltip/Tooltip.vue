@@ -33,6 +33,10 @@ import type { TooltipProps, TooltipEmits, TooltipInstance } from './types'
 import { debounce } from 'lodash-es'
 import useClickOutside from '@/hooks/useClickOutside'
 
+defineOptions({
+  name: 'NanoTooltip'
+})
+
 const props = withDefaults(defineProps<TooltipProps>(), {
   placement: 'bottom', // 默认显示在触发元素下方
   trigger: 'hover',

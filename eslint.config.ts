@@ -24,7 +24,7 @@ export default defineConfigWithVueTs(
     name: 'custom-rules',
     rules: {
       'vue/multi-word-component-names': ['error', {
-        ignores: ['Button', 'Collapse', 'CollapseItem', 'Tooltip', 'Icon']
+        ignores: ['Button', 'Collapse', 'CollapseItem', 'Tooltip', 'Icon', 'Dropdown']
       }],
       "@typescript-eslint/no-explicit-any": "off"
     }

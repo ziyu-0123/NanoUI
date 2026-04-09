@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, h } from 'vue'
 import type { ButtonInstance } from './components/Button/types'
 import type { TooltipInstance } from './components/Tooltip/types'
-import Tooltip from './components/Tooltip/Tooltip.vue'
+import type { MenuOption } from './components/Dropdown/types'
+import Dropdown from './components/Dropdown/Dropdown'
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
@@ -10,13 +11,22 @@ import Icon from './components/Icon/Icon.vue'
 const buttonRef = ref<ButtonInstance | null>(null)
 const tooltipRef = ref<TooltipInstance | null>(null)
 const size = ref<any>('3x')
-const trigger = ref<any>('hover')
+const trigger = ref<any>('click')
+  const options: MenuOption[] = [
+  { key: 1, label: h('b', 'this is bold') },
+  { key: 2, label: 'item2', disabled: true },
+  { key: 3, label: 'item3', divided: true },
+  { key: 4, label: 'item4' }
+]
 const openedValue = ref(['a'])
 const open = () => {
   tooltipRef.value?.show()
 }
 const close = () => {
   tooltipRef.value?.hide()
+}
+const inlineConsole = (...args: any) => {
+  console.log(...args)
 }
 onMounted(()=>{
 if(buttonRef.value){
@@ -35,17 +45,16 @@ const testClick=()=>{
  
 <template>
   <header>
-    <Tooltip placement="right"
+    <Dropdown placement="bottom"
       :trigger="trigger"
+      :menu-options="options"
+      @visible-change="e => inlineConsole('visible change', e)"
+      @select="e => inlineConsole('select', e)"
+      manual
       ref="tooltipRef"
-      :open-delay="1000"
-      :close-delay="1000"
       >
       <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>
-      <template #content>
-        <div>hello tooltip</div>
-      </template>
-    </Tooltip>
+    </Dropdown>
   </header><br/>
 
   <Button type="primary" plain ref="buttonRef" disabled>Test Button</Button><br/>
