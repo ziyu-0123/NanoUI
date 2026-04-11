@@ -8,6 +8,7 @@ import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
+import { createMessage } from './components/Message/method'
 const buttonRef = ref<ButtonInstance | null>(null)
 const tooltipRef = ref<TooltipInstance | null>(null)
 const size = ref<any>('3x')
@@ -29,14 +30,18 @@ const inlineConsole = (...args: any) => {
   console.log(...args)
 }
 onMounted(()=>{
-if(buttonRef.value){
-  console.log('buttonRef', buttonRef.value.ref)
-}
-setTimeout(() => {
-  openedValue.value = ['a', 'b']
-  size.value = '2xl'
-  // trigger.value = 'hover'
-}, 2000)
+  createMessage({ message: 'hello world', duration: 0, showClose: true})
+  createMessage({ message: 'hello world again', duration: 0, type: 'success', showClose: true})
+  createMessage({ message: 'hello world three', duration: 0, type: 'danger', showClose: true})
+  if(buttonRef.value){
+    console.log('buttonRef', buttonRef.value.ref)
+  }
+  setTimeout(() => {
+    openedValue.value = ['a', 'b']
+    size.value = '2xl'
+    // trigger.value = 'hover'
+    // instance.destory()
+  }, 2000)
 })
 const testClick=()=>{
   alert(123)

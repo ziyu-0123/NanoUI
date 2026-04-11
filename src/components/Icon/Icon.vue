@@ -1,6 +1,6 @@
 <template>
   <i class="nano-icon" :class="{[`nano-icon--${type}`] : type }" :style="customStyles" v-bind="$attrs">
-    <font-awesome-icon v-bind="filteredProps"></font-awesome-icon>
+    <FontAwesomeIcon v-bind="filteredProps"></FontAwesomeIcon>
   </i>
 </template>
 
@@ -8,6 +8,7 @@
 import { computed } from 'vue'
 import type { IconProps } from './types'
 import { omit } from 'lodash-es'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 defineOptions({
   name: 'NanoIcon',
   inheritAttrs: false
