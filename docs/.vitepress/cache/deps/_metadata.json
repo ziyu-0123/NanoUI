@@ -1,0 +1,64 @@
+{
+  "hash": "1951d77d",
+  "configHash": "15c8ae48",
+  "lockfileHash": "495710f7",
+  "browserHash": "fa50d5d2",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "1a638586",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "c9e2cd26",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/dist/index.js",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "5acf5fc2",
+      "needsInterop": false
+    },
+    "@fortawesome/fontawesome-svg-core": {
+      "src": "../../../../node_modules/@fortawesome/fontawesome-svg-core/index.mjs",
+      "file": "@fortawesome_fontawesome-svg-core.js",
+      "fileHash": "250e5b23",
+      "needsInterop": false
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "1560a4cf",
+      "needsInterop": false
+    },
+    "lodash-es": {
+      "src": "../../../../node_modules/lodash-es/lodash.js",
+      "file": "lodash-es.js",
+      "fileHash": "88bf8cb8",
+      "needsInterop": false
+    },
+    "@fortawesome/vue-fontawesome": {
+      "src": "../../../../node_modules/@fortawesome/vue-fontawesome/index.es.js",
+      "file": "@fortawesome_vue-fontawesome.js",
+      "fileHash": "8ca7c084",
+      "needsInterop": false
+    },
+    "@vitepress-demo-preview/component": {
+      "src": "../../../../node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
+      "file": "@vitepress-demo-preview_component.js",
+      "fileHash": "a0359dd3",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-C6IL3AD4": {
+      "file": "chunk-C6IL3AD4.js"
+    },
+    "chunk-OSR6TB6A": {
+      "file": "chunk-OSR6TB6A.js"
+    }
+  }
+}
