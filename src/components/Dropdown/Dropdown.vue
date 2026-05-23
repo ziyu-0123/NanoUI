@@ -38,7 +38,7 @@
 import { ref } from 'vue'
 import type { DropdownProps, DropdownInstance, DropdownEmits, MenuOption } from './types'
 import Tooltip from '../Tooltip/Tooltip.vue'
-import RenderVnode from '@/Common/RenderVnode'
+import RenderVnode from '@/components/Common/RenderVnode'
 import type { TooltipInstance } from '../Tooltip/types'
 defineOptions({
   name: 'NanoDropdown'

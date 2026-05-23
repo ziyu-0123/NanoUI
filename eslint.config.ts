@@ -24,7 +24,7 @@ export default defineConfigWithVueTs(
     name: 'custom-rules',
     rules: {
       'vue/multi-word-component-names': ['error', {
-        ignores: ['Button', 'Collapse', 'CollapseItem', 'Tooltip', 'Icon', 'Dropdown', 'Message', 'Input', 'Basic', 'Clear', 'Combo', 'Disable', 'Password', 'Size', 'Textarea', 'Switch', 'Disabled', 'Text']
+        ignores: ['Button', 'Collapse', 'CollapseItem', 'Tooltip', 'Icon', 'Dropdown', 'Message', 'Input', 'Basic', 'Clear', 'Combo', 'Disable', 'Password', 'Size', 'Textarea', 'Switch', 'Disabled', 'Text', 'Select', 'Filter', 'Remote']
       }],
       "@typescript-eslint/no-explicit-any": "off"
     }

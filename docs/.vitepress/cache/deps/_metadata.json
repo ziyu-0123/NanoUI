@@ -2,12 +2,12 @@
   "hash": "1951d77d",
   "configHash": "15c8ae48",
   "lockfileHash": "495710f7",
-  "browserHash": "fa50d5d2",
+  "browserHash": "039a9f7e",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "1a638586",
+      "fileHash": "eb918311",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
@@ -19,13 +19,13 @@
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/dist/index.js",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "5acf5fc2",
+      "fileHash": "f6963bcb",
       "needsInterop": false
     },
     "@fortawesome/fontawesome-svg-core": {
       "src": "../../../../node_modules/@fortawesome/fontawesome-svg-core/index.mjs",
       "file": "@fortawesome_fontawesome-svg-core.js",
-      "fileHash": "250e5b23",
+      "fileHash": "b74e4efb",
       "needsInterop": false
     },
     "@fortawesome/free-solid-svg-icons": {
@@ -43,13 +43,19 @@
     "@fortawesome/vue-fontawesome": {
       "src": "../../../../node_modules/@fortawesome/vue-fontawesome/index.es.js",
       "file": "@fortawesome_vue-fontawesome.js",
-      "fileHash": "8ca7c084",
+      "fileHash": "635a030e",
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
       "src": "../../../../node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
-      "fileHash": "a0359dd3",
+      "fileHash": "a2b49d88",
+      "needsInterop": false
+    },
+    "@popperjs/core": {
+      "src": "../../../../node_modules/@popperjs/core/lib/index.js",
+      "file": "@popperjs_core.js",
+      "fileHash": "cbd7dc0e",
       "needsInterop": false
     }
   },

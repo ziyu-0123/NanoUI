@@ -1,0 +1,75 @@
+.nano-select {
+  --nano-select-item-hover-bg-color: var(--nano-fill-color-light);
+  --nano-select-item-font-size: var(--nano-font-size-base);
+  --nano-select-item-font-color: var(--nano-text-color-regular);
+  --nano-select-item-selected-font-color: var(--nano-color-primary);
+  --nano-select-item-disabled-font-color: var(--nano-text-color-placeholder);
+  --nano-select-input-focus-border-color: var(--nano-color-primary);
+}
+
+.nano-select {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 32px;
+  .nano-tooltip .nano-tooltip__popper {
+    padding: 0;
+  }
+  .nano-input.is-focus .nano-input__wrapper {
+    box-shadow: 0 0 0 1px var(--nano-select-input-focus-border-color) inset!important
+  }
+  .nano-input {
+    .header-angle {
+      transition: transform var(--nano-transition-duration);
+      &.is-active {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .nano-input__inner {
+    cursor: pointer;
+  }
+  .nano-select__nodata, .nano-select__loading {
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    color: var(--nano-text-color-secondary);
+    font-size: var(--nano-select-font-size);
+  }
+  .nano-select__menu {
+    list-style: none;
+    margin: 6px 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .nano-select__menu-item { 
+    margin: 0;
+    font-size: var(--nano-select-item-font-size);
+    padding: 0 32px 0 20px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--nano-select-item-font-color);
+    height: 34px;
+    line-height: 34px;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--nano-select-item-hover-bg-color);
+    }
+    &.is-selected {
+      color: var(--nano-select-item-selected-font-color);
+      font-weight: 700;    
+    }
+    &.is-highlighted {
+      background-color: var(--nano-select-item-hover-bg-color);
+    }
+    &.is-disabled {
+      color: var(--nano-select-item-disabled-font-color);
+      cursor: not-allowed;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
