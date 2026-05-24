@@ -92,10 +92,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, useAttrs, nextTick } from 'vue'
+import { ref, watch, computed, useAttrs, nextTick, inject } from 'vue'
 import type { Ref } from 'vue'
 import type { InputProps, InputEmits } from './types'
 import Icon from '../Icon/Icon.vue'
+import { formItemContextKey} from '../Form/types'
 defineOptions({
   name: 'NanoInput',
   inheritAttrs: false
@@ -107,6 +108,10 @@ const innerValue = ref(props.modelValue)
 const isFocus = ref(false)
 const passwordVisible = ref(false)
 const inputRef = ref() as Ref<HTMLInputElement>
+const formItemContext = inject(formItemContextKey)
+const runValidation = (trigger?: string) => {
+  formItemContext?.validate(trigger).catch((e)=>console.log(e.errors))
+}
 const showClear = computed(() => 
   props.clearable &&
   !props.disabled &&
@@ -129,9 +134,11 @@ const keepFocus = async () => {
 const handleInput = () => {
   emits('update:modelValue', innerValue.value)
   emits('input' as any, innerValue.value)
+  runValidation('input')
 }
 const handleChange = () => {
   emits('change' as any, innerValue.value)
+  runValidation('change')
 }
 const handleFocus = (event: FocusEvent) => {
   isFocus.value = true
@@ -141,6 +148,7 @@ const handleBlur = (event: FocusEvent) => {
   console.log('blur triggered')
   isFocus.value = false
   emits('blur', event)
+  runValidation('blur')
 }
 const clear = () => {
   console.log('clear triggered')
