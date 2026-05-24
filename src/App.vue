@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, h } from 'vue'
+import { ref, onMounted, h, inject } from 'vue'
 import type { ButtonInstance } from './components/Button/types'
 import type { TooltipInstance } from './components/Tooltip/types'
 import type { MenuOption } from './components/Dropdown/types'
@@ -29,6 +29,7 @@ const close = () => {
 const inlineConsole = (...args: any) => {
   console.log(...args)
 }
+console.log(inject('test'))
 onMounted(()=>{
   createMessage({ message: 'hello world', duration: 0, showClose: true})
   createMessage({ message: 'hello world again', duration: 0, type: 'success', showClose: true})
@@ -68,6 +69,8 @@ const testClick=()=>{
 
   <Icon icon="arrow-up" :size="size" type="danger" color="#0e7a0d"></Icon><br/>
 
+  {{$echo('nano')}}
+  <nano-button round>Round Button</nano-button>
   <Button type="primary" @click="testClick">Primary</Button>
   <Button type="success" @click="open">Success</Button>
   <Button type="info" @click="close">Info</Button>

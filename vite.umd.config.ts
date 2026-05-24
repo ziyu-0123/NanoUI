@@ -3,44 +3,38 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import dts from 'vite-plugin-dts'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx(),
-    vueDevTools(),
-    dts({
-      tsconfigPath: './tsconfig.build.json'
-    })
+    vueJsx()
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    }
   },
   build: {
+    outDir: 'dist/umd',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'NanoUI',
-      fileName: 'nano-element'
+      fileName: 'nano-element',
+      formats: ['umd']
     },
     rollupOptions: {
-      external: ['vue', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons', '@fortawesome/vue-fontawesome'],
+      external: ['vue'],
       output: {
         exports: 'named',
         globals: {
           vue: 'Vue'
         },
         assetFileNames: (assetInfo) => {
-          // 添加更安全的处理
           const name = assetInfo.name || ''
           if (name === 'style.css' || name.endsWith('.css')) {
             return 'index.css'
           }
-          // 如果 name 为空，返回默认值
           if (!name) {
             return 'assets/[name]-[hash][extname]'
           }
@@ -48,6 +42,5 @@ export default defineConfig({
         }
       }
     }
-  },
-
+  }
 })
